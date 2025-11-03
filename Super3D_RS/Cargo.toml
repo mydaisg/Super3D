@@ -1,0 +1,8 @@
+[package]
+name = "super3D"
+version = "0.1.0"
+edition = "2025"
+
+// [dependencies]
+// ndarray = "0.15"
+// statrs = "0.16"
