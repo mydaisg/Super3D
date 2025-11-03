@@ -6,29 +6,33 @@
 # @brief/ Description
 ## Super 3D lottery with Fractal Theory
 ## 福彩3D累计积分形分析算法
-# library(GH.AN.LIST) # 最新数据获取
+
 # # -----------------------------------------
 # # A：数据准备与任务创建
 # # -----------------------------------------
+
 # # 方法1：自建包获取数据：数据 3D_Data。
-# Super3D_Data <- GH_LIST(5,1000,6)
+# library(GH.AN.LIST) 
+# Super3D_Data <- GH_LIST(5,1000,4) #参数(3D代码、期数、字段数)
 # str(Super3D_Data) # 数据集的基本信息
 # head(Super3D_Data)  # 前几行数据
 # sum(is.na(Super3D_Data)) # 检查缺失值
 
-# 方法3：导入本地CSV格式的历史数据
-# 方法3：模拟福彩3D历史数据（假设已有100期数据）
-# 格式：期号(ISSUE), 百位(Hundreds), 十位(Tens), 个位(Units)
+# 方法2：导入本地CSV格式的历史数据
+# 方法3：模拟生成随机的福彩3D历史数据
+## 格式：期号(ISSUE), 百位(Hundreds), 十位(Tens), 个位(Units)
 set.seed(123) # 设置随机种子确保示例可重现
-n_periods <- 100
-
-# 生成数据
+n_periods <- 100 # 设置期数
+## 生成随机数据
 Super3D_history <- data.frame(
   ISSUE = 240001:(240000 + n_periods),
   Hundreds = sample(0:9, n_periods, replace = TRUE),
   Tens = sample(0:9, n_periods, replace = TRUE),
   Units = sample(0:9, n_periods, replace = TRUE)
 )
+# 方法4：爬虫
+# source("./SPIDER_3D.R",encoding="utf-8")
+# Super3D_history <- SP_3D(1000)
 
 # # -----------------------------------------
 # # B：累计积分形转换函数
